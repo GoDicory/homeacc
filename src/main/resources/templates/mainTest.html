@@ -6,7 +6,31 @@
     <link rel="stylesheet" href="/css/style.css"/>
 </head>
 <body>
-<h1>Добро пожаловать, <span th:text="${username}"></span>!</h1>
-<p>Ваша тестовая логика <span th:text="${serviceTest}"></span> </p>
+    <div class="header">
+        <span>Логотип</span>
+        <span>Дата</span>
+        <span>Время</span>
+    </div>
+
+    <div class="sidebar">
+        <span>дашборд</span>
+        <span>категории</span>
+        <span>транзакции</span>
+        <span>финансовые цели</span>
+        <span>отчёт</span>
+    </div>
+
+
+    <div class="container_main">
+        <h1>Добро пожаловать, <span th:text="${username}"></span>!</h1>
+        <p>Ваша тестовая логика <span th:text="${serviceTest}"></span> </p>
+    </div>
+
+    <div class="footer">
+        <span>баланс</span>
+        <span>кол-во транкзаций</span>
+    </div>
+
+
 </body>
 </html>
