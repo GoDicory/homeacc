@@ -24,12 +24,36 @@
     <div class="container_main">
         <h1>Добро пожаловать, <span th:text="${username}"></span>!</h1>
         <p>Ваша тестовая логика <span th:text="${serviceTest}"></span> </p>
+        <p>Моя база данных <span th:text="${bazaAll}"></span> </p>
     </div>
 
     <div class="footer">
         <span>баланс</span>
         <span>кол-во транкзаций</span>
     </div>
+
+
+    <!-- Форма для создания пользователя -->
+    <div class="form-container">
+        <h2>Создать нового пользователя:</h2>
+        <form th:action="@{/api/users}" th:object="${user}" method="post">
+            <div class="form-group">
+                <label for="name">Имя:</label>
+                <input type="text" id="name" th:field="*{name}" placeholder="Введите имя">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" th:field="*{email}" placeholder="Введите email">
+            </div>
+            <div class="form-group">
+                <label for="age">Возраст:</label>
+                <input type="number" id="age" th:field="*{age}" placeholder="Введите возраст">
+            </div>
+            <button type="submit">Создать пользователя</button>
+        </form>
+    </div>
+
+
 
 
 </body>

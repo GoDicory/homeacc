@@ -1,13 +1,20 @@
 package com.homeacc.repository;
 
-import java.time.LocalDate;
+import jakarta.persistence.*;
 
+import java.time.LocalDate;
+@Entity
+@Table(name = "users")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "name")
     private String name;
     private String email;
     private LocalDate birth;
     private  Integer age;
+
 
     public User(Long id, String name, String email, LocalDate birth, Integer age) {
         this.id = id;
@@ -15,6 +22,10 @@ public class User {
         this.email = email;
         this.birth = birth;
         this.age = age;
+    }
+
+    public User() {
+
     }
 
     public Long getId() {
@@ -55,5 +66,16 @@ public class User {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", birth=" + birth +
+                ", age=" + age +
+                '}';
     }
 }
