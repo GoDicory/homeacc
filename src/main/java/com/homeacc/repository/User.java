@@ -2,6 +2,7 @@ package com.homeacc.repository;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 @Entity
 @Table(name = "users")
@@ -9,19 +10,17 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "name")
-    private String name;
-    private String email;
-    private LocalDate birth;
-    private  Integer age;
+    @Column(name = "login")
+    private String login;
+    private String password;
+    private BigDecimal balance;
 
 
-    public User(Long id, String name, String email, LocalDate birth, Integer age) {
+    public User(Long id, String login, String password, BigDecimal balance) {
         this.id = id;
-        this.name = name;
-        this.email = email;
-        this.birth = birth;
-        this.age = age;
+        this.login = login;
+        this.password = password;
+        this.balance = balance;
     }
 
     public User() {
@@ -36,46 +35,37 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getLogin() {
+        return login;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
-    public String getEmail() {
-        return email;
+    public String getPassword() {
+        return password;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public LocalDate getBirth() {
-        return birth;
+    public BigDecimal getBalance() {
+        return balance;
     }
 
-    public void setBirth(LocalDate birth) {
-        this.birth = birth;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", birth=" + birth +
-                ", age=" + age +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", balance=" + balance +
                 '}';
     }
 }

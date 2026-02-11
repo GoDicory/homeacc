@@ -36,22 +36,36 @@
     <!-- Форма для создания пользователя -->
     <div class="form-container">
         <h2>Создать нового пользователя:</h2>
-        <form th:action="@{/api/users}" th:object="${user}" method="post">
+        <form th:action="@{/}" th:object="${user}" method="post">
             <div class="form-group">
-                <label for="name">Имя:</label>
-                <input type="text" id="name" th:field="*{name}" placeholder="Введите имя">
+                <label for="login">Логин:</label>
+                <input type="text" id="login" th:field="*{login}" placeholder="Введите логин">
             </div>
             <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" th:field="*{email}" placeholder="Введите email">
-            </div>
-            <div class="form-group">
-                <label for="age">Возраст:</label>
-                <input type="number" id="age" th:field="*{age}" placeholder="Введите возраст">
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" th:field="*{password}" placeholder="Введите пароль">
             </div>
             <button type="submit">Создать пользователя</button>
         </form>
     </div>
+
+
+
+    <div class="form-container">
+        <h2>Залогиниться:</h2>
+        <form th:action="@{/login/}" th:object="${user}" method="post">
+            <div class="form-group">
+                <label for="login">Логин:</label>
+                <input type="text" id="logina" th:field="*{login}" placeholder="Введите логин">
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <input type="password" id="passwordd" th:field="*{password}" placeholder="Введите пароль">
+            </div>
+            <button type="submit">Вход</button>
+        </form>
+    </div>
+
 
 
 

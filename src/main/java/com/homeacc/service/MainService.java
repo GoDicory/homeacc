@@ -4,6 +4,7 @@ import com.homeacc.repository.User;
 import com.homeacc.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,13 +27,22 @@ public class MainService {
         int b = 10;
         int c = a + b;
         return c;
+
+
+
     }
 
     public User create(User user){
-        Optional<User> optionalUser = userRepository.findByEmail(user.getEmail());
-        if (optionalUser.isPresent()){
-            throw new IllegalStateException("юзер с таким мылом уже есть");
-        }
+        user.setBalance(BigDecimal.ZERO);
         return userRepository.save(user);
     }
+
+    public User autorizations(String login, String password){
+        User user = userRepository.findByLogin(login);
+        if (user != null && user.getPassword().equals(password)){
+            return user;
+        }
+        return null;
+    }
+
 }
