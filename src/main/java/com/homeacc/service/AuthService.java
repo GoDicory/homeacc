@@ -6,31 +6,16 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Optional;
 
 @Service
-public class MainService {
+public class AuthService {
 
     private final UserRepository userRepository;
 
-    public MainService(UserRepository userRepository) {
+    public AuthService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-
-    public List<User> testBD(){
-        return userRepository.findAll();
-    }
-
-    public int testService(){
-        int a = 5;
-        int b = 10;
-        int c = a + b;
-        return c;
-
-
-
-    }
 
     public User create(User user){
         user.setBalance(BigDecimal.ZERO);

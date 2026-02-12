@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- Форма для создания пользователя -->
+<div class="form-container">
+    <h2>Создать нового пользователя:</h2>
+    <form th:action="@{/auth/reg-user/}" th:object="${user}" method="post">
+        <div class="form-group">
+            <label for="login">Логин:</label>
+            <input type="text" id="login" th:field="*{login}" placeholder="Введите логин">
+        </div>
+        <div class="form-group">
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" th:field="*{password}" placeholder="Введите пароль">
+        </div>
+        <button type="submit">Создать пользователя</button>
+    </form>
+</div>
+</body>
+</html>
