@@ -8,3 +8,92 @@ h1 {
 body {
     background-color: lightblue !important;
 }
+
+
+/* body {
+ margin: auto;
+ max-width: 1200px;
+} */
+
+* {
+    font-size: 18px;
+}
+
+
+.headerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #94eaff;
+    padding: 0 20px 0 20px;
+    margin-bottom: 3px;
+    min-height: 100px;
+
+
+}
+
+.logo {
+
+    max-width: 60px;
+}
+
+.sidebar {
+    display: grid;
+    justify-content: start;
+    grid-auto-rows: 50px;
+    gap: 3px;
+    grid-template-columns: 275px;
+
+
+}
+
+.item {
+    background: #e0de6d;
+    place-content: center;
+
+}
+
+.footerContainer {
+    margin-top: 3px;
+    background: #94eaff;
+    min-height: 100px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.mainContainer {
+    display: flex;
+    grid-auto-flow: column;
+}
+
+.content {
+    border-style: double;
+    border-color:blue;
+    border-width: 2px;
+    flex-grow: 1;
+    background: #e7e7e7;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 8px;
+
+}
+
+.contentBlock {
+    width: 23%;
+    margin: 3px;
+    border-style:solid;
+
+
+}
+
+.contentBlock p {
+    padding-left: 16px;
+}
+
+
+
