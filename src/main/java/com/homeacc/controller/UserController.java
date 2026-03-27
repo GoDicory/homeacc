@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.ui.Model;
 @Controller
-@RequestMapping(path = "/auth/user/")
+@RequestMapping(path = "/auth/home/")
 public class UserController {
 
     @Autowired
@@ -19,7 +19,7 @@ public class UserController {
     public String index(HttpSession session, Model model){
         User currentUser = (User) session.getAttribute("currentUser");
         if(currentUser != null){
-            return "user";
+            return "home";
         } else {
             return "redirect:/";
         }

@@ -28,7 +28,8 @@ public class LoginController {
         User user = authService.autorizations(login,password);
         if(user != null){
             session.setAttribute("currentUser", user);
-            return "redirect:/auth/user/";
+            //return "redirect:/auth/user/";
+              return "redirect:/auth/home/";
         } else {
             return "redirect:/";
         }
