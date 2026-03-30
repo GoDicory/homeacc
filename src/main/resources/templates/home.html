@@ -7,23 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <header class="headerContainer">
-        <div><img src="/img/logo.png" class="logo"><span>Домашняя бухглатерия</span></div>
-        <div class="dataTime"><span>25 марта 20:40</span></div>
-        <div class="nameUser">Игорь Шилов</div>
-    </header>
-
+<div th:replace="~{fragments/header :: header}"></div>
     <main class="mainContainer">
 
-    <div class="sidebar">
-        <div class="item">Главная страница</div>
-        <div class="item">Транзакции</div>
-        <div class="item">Категории</div>
-        <div class="item">Финансовые цели</div>
-        <div class="item">Отчёт</div>
-        <div class="item">Настройки</div>   
-        </ul>
-    </div>
+        <div th:replace="~{fragments/sidebar :: sidebar}"></div>
 
     <div class="content">
         <div class="contentBlock"><p>flex — в большинстве случаев, когда контейнер должен быть основным структурным блоком (шапка, меню, карточки, сетка).</p></div>
