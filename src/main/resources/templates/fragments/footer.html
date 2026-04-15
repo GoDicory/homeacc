@@ -1,5 +1,4 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <footer th:fragment="footer" class="footerContainer">
-    <div class="balanceFooter"><span>Бюджет: 5715 рублей</span></div>
-
+    <div class="balanceFooter"><p>Баланс: <span th:text="${userBalance}"></span> рублей</p></div>
 </footer>

@@ -2,6 +2,6 @@
 <header th:fragment="header" class="headerContainer">
     <div><img src="/img/logo.png" class="logo"><span>Домашняя бухглатерия</span></div>
     <div class="dataTime"><span>25 марта 20:40</span></div>
-    <div class="nameUser">Игорь Шилов</div>
+    <div class="nameUser" th:text="${userLogin}"></div>
 </header>
 </html>
