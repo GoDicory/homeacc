@@ -21,42 +21,48 @@
                 <th>Сумма</th>
                 <th>Коментарий</th>
             </tr>
-            <tr>
-                <td>16.04.2026</td>
-                <td>Тестовый счёт</td>
-                <td>Зарплата</td>
-                <td>Премия</td>
-                <td>25000</td>
-                <td>Получил премию за мощь</td>
-            </tr>
-            <tr>
-                <td>16.04.2026</td>
-                <td>Тестовый счёт</td>
-                <td>Зарплата</td>
-                <td>Премия</td>
-                <td>25000</td>
-                <td>Получил премию за мощь</td>
-            </tr>
-            <tr>
-                <td>16.04.2026</td>
-                <td>Тестовый счёт</td>
-                <td>Зарплата</td>
-                <td>Премия</td>
-                <td>25000</td>
-                <td>Получил премию за мощь</td>
-            </tr>
-            <tr>
-                <td>16.04.2026</td>
-                <td>Тестовый счёт</td>
-                <td>Зарплата</td>
-                <td>Премия</td>
-                <td>25000</td>
-                <td>Получил премию за мощь</td>
+            <tr th:each="t : ${tablesTransactions}">
+                <td th:text="${t.data}"></td>
+                <td th:text="${t.score}"></td>
+                <td th:text="${t.categories}"></td>
+                <td th:text="${t.getSubCategories()}"></td>
+                <td th:text="${t.summa}"></td>
+                <td th:text="${t.comments}"></td>
             </tr>
         </table>
 
         <div>
             <p>Добавить | Изменить | Удалить</p>
+            <div class="createTransactions">
+                <form th:action="@{/auth/transactions/}" th:object="${transactions}" method="post">
+                    <div class="form-group">
+                        <label for="data">Дата:</label>
+                        <input type="date" id="data" th:field="*{data}" placeholder="ГГГГ-ММ-ДД">
+                    </div>
+                    <div class="form-group">
+                        <label for="score">Счёт:</label>
+                        <input type="text" id="score" th:field="*{score}" placeholder="Введите название счёта">
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Категория:</label>
+                        <input type="text" id="category" th:field="*{categories}" placeholder="Название категории">
+                    </div>
+                    <div class="form-group">
+                        <label for="subCategory">Подкатегория:</label>
+                        <input type="text" id="subCategory" th:field="*{subCategories}" placeholder="Название Подкатегории">
+                    </div>
+                    <div class="form-group">
+                        <label for="summa">Сумма:</label>
+                        <input type="number" id="summa" th:field="*{summa}" placeholder="Сумма">
+                    </div>
+                    <div class="form-group">
+                        <label for="comments">Коментарий:</label>
+                        <input id="comments" th:field="*{comments}" placeholder="Коментарий">
+                    </div>
+                    <button type="submit">Добавить</button>
+                </form>
+
+            </div>
         </div>
     </div>
 </main>
