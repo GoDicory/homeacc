@@ -1,8 +1,10 @@
 package com.homeacc.controller;
 
+import com.homeacc.repository.CatSab;
 import com.homeacc.repository.Transactions;
 import com.homeacc.repository.User;
 import com.homeacc.service.AdviceService;
+import com.homeacc.service.CatSabService;
 import com.homeacc.service.TransactionsService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +26,13 @@ public class TransactionsController {
     @Autowired
     private final TransactionsService transactionsService;
 
-    public TransactionsController(AdviceService adviceService, TransactionsService transactionsService) {
+    @Autowired
+    private final CatSabService catSabService;
+
+    public TransactionsController(AdviceService adviceService, TransactionsService transactionsService, CatSabService catSabService) {
         this.adviceService = adviceService;
         this.transactionsService = transactionsService;
+        this.catSabService = catSabService;
     }
 
     @GetMapping
@@ -36,7 +42,7 @@ public class TransactionsController {
             List<Transactions> tablesTransactions = transactionsService.getAllTransactions(currentUser.getLogin());
             model.addAttribute("tablesTransactions", tablesTransactions);
             model.addAttribute("user",currentUser);
-            model.addAttribute("transactions", new Transactions());
+            model.addAttribute("transactions", new Transactions()).addAttribute("category", new CatSab());
             return "transactions";
         } else {
             return "redirect:/";
@@ -48,6 +54,7 @@ public class TransactionsController {
         User currentUser = (User) session.getAttribute("currentUser");
         String userLogin = adviceService.getLoginUser(currentUser.getId());
         transactions.setUserLogin(userLogin);
+//        transactions.setCategories("Транзакт контроллер");
         transactionsService.add(transactions);
         return "redirect:/auth/transactions/";
     }
