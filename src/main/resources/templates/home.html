@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -11,15 +12,10 @@
     <main class="mainContainer">
         <div th:replace="~{fragments/sidebar :: sidebar}"></div>
     <div class="content">
-        <div class="contentBlock"><p>flex — в большинстве случаев, когда контейнер должен быть основным структурным блоком (шапка, меню, карточки, сетка).</p></div>
-        <div class="contentBlock"><p>flex — в большинстве случаев, когда контейнер должен быть основным структурным блоком (шапка, меню, карточки, сетка).</p></div>
-        <div class="contentBlock"><p>flex — в большинстве случаев, когда контейнер должен быть основным структурным блоком (шапка, меню, карточки, сетка).</p></div>
-        <div class="contentBlock"><p>flex — в большинстве случаев, когда контейнер должен быть основным структурным блоком (шапка, меню, карточки, сетка).</p></div>
-        <div class="contentBlock"><p>flex — в большинстве случаев, когда контейнер должен быть основным структурным блоком (шапка, меню, карточки, сетка).</p></div>
-        <div class="contentBlock"><p>flex — в большинстве случаев, когда контейнер должен быть основным структурным блоком (шапка, меню, карточки, сетка).</p></div>
-        <div class="contentBlock"><p>flex — в большинстве случаев, когда контейнер должен быть основным структурным блоком (шапка, меню, карточки, сетка).</p></div>
-        <div class="contentBlock"><p>flex — в большинстве случаев, когда контейнер должен быть основным структурным блоком (шапка, меню, карточки, сетка).</p></div>
-        <div class="contentBlock"><p>flex — в большинстве случаев, когда контейнер должен быть основным структурным блоком (шапка, меню, карточки, сетка).</p></div>
+        <div class="chart-container" style="position: relative; height:400px; width:500px">
+            <canvas id="myChart"></canvas>
+        </div>
+        <script th:src="@{/js/chart.js}"></script>
     </div>
     </main>
     <div th:replace="~{fragments/footer :: footer}"></div>

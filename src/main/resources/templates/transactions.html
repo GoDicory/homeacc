@@ -11,7 +11,6 @@
 <main class="mainContainer">
     <div th:replace="~{fragments/sidebar :: sidebar}"></div>
     <div class="content">
-        (сортировка по клику колонки, строки: красным расход, зелёные доход)
         <table>
             <tr>
                 <th>Дата</th>
@@ -35,7 +34,6 @@
         </table>
 
         <div>
-            <p>Добавить | Изменить | Удалить</p>
             <div class="createTransactions">
                 <form th:action="@{/auth/transactions/}" th:object="${transactions}" method="post">
                     <div class="form-group">
