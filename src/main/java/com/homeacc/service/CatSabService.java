@@ -20,4 +20,8 @@ public class CatSabService {
     public List<CatSab> getAllCategory(String user_login){
         return catSabRepository.findAllByUserLogin(user_login);
     }
+
+    public  CatSab findById(Long id){
+        return catSabRepository.findById(id).orElse(null);
+    }
 }

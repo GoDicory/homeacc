@@ -22,6 +22,17 @@ public class Transactions {
     private BigDecimal summa;
     private String comments;
 
+    public Long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    @Transient
+    private Long categoryId;
+
     public Transactions() {
 
     }

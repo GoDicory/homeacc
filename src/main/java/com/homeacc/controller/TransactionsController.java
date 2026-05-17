@@ -56,7 +56,7 @@ public class TransactionsController {
         User currentUser = (User) session.getAttribute("currentUser");
         String userLogin = adviceService.getLoginUser(currentUser.getId());
         transactions.setUserLogin(userLogin);
-//        transactions.setCategories("Транзакт контроллер");
+        transactions.setCategories(catSabService.findById(transactions.getCategoryId()).getCategory());
         transactionsService.add(transactions);
         return "redirect:/auth/transactions/";
     }

@@ -45,14 +45,14 @@
                     </div>
                     <div class="form-group">
                         <label for="category">Категория:</label>
-                        <input type="text" id="category" th:field="*{categories}" placeholder="Название категории">
-                    </div>
-                    <div class="form-group">
-<!--                        <label for="subCategory">Подкатегория:</label>-->
-<!--                        <input type="text" id="subCategory" th:field="*{subCategories}" placeholder="Название Подкатегории">-->
-                        <select th:field="*{id}">
+                        <select id="category" th:field="*{categoryId}">
                             <option th:each="cat : ${categoryList}" th:value="${cat.id}" th:text="${cat.category}" ></option>
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="subCategory">Подкатегория:</label>
+                        <input type="text" id="subCategory" th:field="*{subCategories}" placeholder="Название Подкатегории">
+
                     </div>
                     <div class="form-group">
                         <label for="summa">Сумма:</label>
