@@ -28,6 +28,9 @@
                 <td th:text="${t.getSubCategories()}"></td>
                 <td th:text="${t.summa}"></td>
                 <td th:text="${t.comments}"></td>
+                <td><a th:href="'/auth/transactions/delete/' + ${t.id}"
+                    onclick="return confirm('Удалить транзакцию')">Удалить</a>
+                </td>
             </tr>
         </table>
 

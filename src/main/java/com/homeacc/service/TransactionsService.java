@@ -21,4 +21,8 @@ public class TransactionsService {
     public List<Transactions> getAllTransactions(String user_login){
         return transactionsRepository.findALLByUserLogin(user_login);
     }
+
+    public  void deleteByID(Long id) {
+        transactionsRepository.deleteById(id);
+    }
 }
