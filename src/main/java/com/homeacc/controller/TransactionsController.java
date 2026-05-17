@@ -40,9 +40,11 @@ public class TransactionsController {
         User currentUser = (User) session.getAttribute("currentUser");
         if(currentUser != null){
             List<Transactions> tablesTransactions = transactionsService.getAllTransactions(currentUser.getLogin());
+            List<CatSab> categoryUser = catSabService.getAllCategory(currentUser.getLogin());
+            model.addAttribute("categoryList", categoryUser);
             model.addAttribute("tablesTransactions", tablesTransactions);
             model.addAttribute("user",currentUser);
-            model.addAttribute("transactions", new Transactions()).addAttribute("category", new CatSab());
+            model.addAttribute("transactions", new Transactions());
             return "transactions";
         } else {
             return "redirect:/";
