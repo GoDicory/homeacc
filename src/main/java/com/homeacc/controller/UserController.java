@@ -28,9 +28,8 @@ public class UserController {
     @GetMapping
     public String index(HttpSession session, Model model){
         User currentUser = (User) session.getAttribute("currentUser");
-        List<Transactions> transactions = homeService.getAllTransactions(currentUser.getLogin());
-
         if(currentUser != null){
+            List<Transactions> transactions = homeService.getAllTransactions(currentUser.getLogin());
             model.addAttribute("user",currentUser);
             model.addAttribute("transactions", transactions);
             return "home";
