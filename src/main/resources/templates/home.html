@@ -17,8 +17,7 @@
         </div>
         <script th:src="@{/js/chart.js}"></script>
         <script th:inline="javascript">
-            var transactions = /*[[${transactions}]]*/ [];
-            console.log('Transactions loaded:', transactions);
+            var transactions = [[${transactions}]]
         </script>
     </div>
     </main>

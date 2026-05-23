@@ -2,15 +2,28 @@
 document.addEventListener('DOMContentLoaded', function() {
     const ctx = document.getElementById('transactionsChart').getContext('2d');
 
-    var transaction_x = transactions.map(t => t["summa"]);
-    var transaction_y = transactions.map(t => t["categories"]);
+    var summaCategories = {};
+
+    for (var i = 0; i < transactions.length; i++){
+        var categories = transactions[i]["categories"];
+        var summa = transactions[i]["summa"];
+
+        if(summaCategories[categories]){
+            summaCategories[categories] = summaCategories[categories] + summa;
+        } else {
+            summaCategories[categories] = summa;
+        }
+    }
+
+    var categoriesAll = Object.keys(summaCategories);
+    var summaAll = Object.values(summaCategories)
 
     new Chart(ctx, {
         type: 'pie',
         data: {
-            labels: transaction_y,
+            labels: categoriesAll,
             datasets: [{
-                data: transaction_x,
+                data: summaAll,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',

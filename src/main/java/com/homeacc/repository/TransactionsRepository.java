@@ -11,10 +11,4 @@ import java.util.List;
 public interface TransactionsRepository extends JpaRepository<Transactions, Long> {
     @Query(value = "select * from transactions WHERE user_login = :user_login", nativeQuery = true)
     List<Transactions> findALLByUserLogin(@Param("user_login") String user_login);
-
-
-
-
-
-
 }

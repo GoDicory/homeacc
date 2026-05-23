@@ -4,6 +4,7 @@ import com.homeacc.repository.Transactions;
 import com.homeacc.repository.TransactionsRepository;
 import com.homeacc.repository.User;
 import com.homeacc.service.AuthService;
+import com.homeacc.service.HomeService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.ui.Model;
 
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 @RequestMapping(path = "/auth/home/")
@@ -21,16 +23,13 @@ public class UserController {
     private AuthService authService;
 
     @Autowired
-    private final TransactionsRepository transactionsRepository;
-
-    public UserController(TransactionsRepository transactionsRepository) {
-        this.transactionsRepository = transactionsRepository;
-    }
+    private HomeService homeService;
 
     @GetMapping
     public String index(HttpSession session, Model model){
-        List<Transactions> transactions = transactionsRepository.findAll();
         User currentUser = (User) session.getAttribute("currentUser");
+        List<Transactions> transactions = homeService.getAllTransactions(currentUser.getLogin());
+
         if(currentUser != null){
             model.addAttribute("user",currentUser);
             model.addAttribute("transactions", transactions);
