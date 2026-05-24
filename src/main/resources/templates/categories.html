@@ -11,15 +11,36 @@
 <main class="mainContainer">
     <div th:replace="~{fragments/sidebar :: sidebar}"></div>
     <div class="content">
-        <div class="contentBlock"><p>flex — в большинстве случаев, когда контейнер должен быть основным структурным блоком (шапка, меню, карточки, сетка).</p></div>
-        <div class="contentBlock"><p>flex — в большинстве случаев, когда контейнер должен быть основным структурным блоком (шапка, меню, карточки, сетка).</p></div>
-        <div class="contentBlock"><p>flex — в большинстве случаев, когда контейнер должен быть основным структурным блоком (шапка, меню, карточки, сетка).</p></div>
-        <div class="contentBlock"><p>flex — в большинстве случаев, когда контейнер должен быть основным структурным блоком (шапка, меню, карточки, сетка).</p></div>
-        <div class="contentBlock"><p>flex — в большинстве случаев, когда контейнер должен быть основным структурным блоком (шапка, меню, карточки, сетка).</p></div>
-        <div class="contentBlock"><p>flex — в большинстве случаев, когда контейнер должен быть основным структурным блоком (шапка, меню, карточки, сетка).</p></div>
-        <div class="contentBlock"><p>flex — в большинстве случаев, когда контейнер должен быть основным структурным блоком (шапка, меню, карточки, сетка).</p></div>
-        <div class="contentBlock"><p>flex — в большинстве случаев, когда контейнер должен быть основным структурным блоком (шапка, меню, карточки, сетка).</p></div>
-        <div class="contentBlock"><p>flex — в большинстве случаев, когда контейнер должен быть основным структурным блоком (шапка, меню, карточки, сетка).</p></div>
+            <table>
+                <tr>
+                    <th>Категория</th>
+                    <th>Подкатегория</th>
+                </tr>
+                <tr th:each="t : ${catBlockAll}">
+                    <td th:text="${t.getCategory}"></td>
+                    <td th:text="${t.getComments()}"></td>
+                    <td><a th:href="'/auth/categories/delete/' + ${t.id}"
+                           onclick="return confirm('Удалить категорию')">Удалить</a>
+                    </td>
+                </tr>
+            </table>
+
+            <div>
+                <div class="createTransactions">
+                    <form th:action="@{/auth/categories/}" th:object="${newCatSab}" method="post">
+                        <div class="form-group">
+                            <label for="category">Счёт:</label>
+                            <input type="text" id="category" th:field="*{category}" placeholder="Введите название счёта">
+                        </div>
+                        <div class="form-group">
+                            <label for="comments">Счёт:</label>
+                            <input type="text" id="comments" th:field="*{comments}" placeholder="Введите название счёта">
+                        </div>
+                        <button type="submit">Добавить</button>
+                    </form>
+
+                </div>
+            </div>
     </div>
 </main>
 <div th:replace="~{fragments/footer :: footer}"></div>

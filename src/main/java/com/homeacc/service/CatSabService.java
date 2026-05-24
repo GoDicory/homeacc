@@ -13,6 +13,7 @@ public class CatSabService {
 
     private final CatSabRepository catSabRepository;
 
+
     public CatSabService(CatSabRepository catSabRepository) {
         this.catSabRepository = catSabRepository;
     }
@@ -24,4 +25,8 @@ public class CatSabService {
     public  CatSab findById(Long id){
         return catSabRepository.findById(id).orElse(null);
     }
+
+    public  void deleteByID(Long id) { catSabRepository.deleteById(id); }
+
+    public CatSab add(CatSab catSab){return catSabRepository.save(catSab);}
 }

@@ -37,15 +37,26 @@ public class CatSab {
         this.category = category;
     }
 
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
     @Column(name = "user_login")
     private String userLogin;
-
     @Column(name = "category")
     private String category;
+    @Column(name = "comments")
+    private String comments;
 
-    public CatSab(Long id, String userLogin, String category) {
+    public CatSab(Long id, String userLogin, String category, String comments) {
         this.id = id;
         this.userLogin = userLogin;
         this.category = category;
+        this.comments = comments;
     }
+
 }
