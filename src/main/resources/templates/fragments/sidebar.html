@@ -1,8 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
-<div th:fragment="sidebar" class="sidebar">
-    <a th:href="@{/auth/home/}" class="item">Главная страница</a>
-    <a th:href="@{/auth/transactions/}" class="item">Транзакции</a>
-    <a th:href="@{/auth/categories/}" class="item">Категории</a>
-    <a th:href="@{/auth/report/}" class="item">Отчёт</a>
-    <a th:href="@{/auth/setting/}" class="item">Настройки</a>
+<div th:fragment="sidebar" class="btn-group my-3">
+    <a th:href="@{/auth/home/}" class="btn btn-outline-primary">Главная страница</a>
+    <a th:href="@{/auth/transactions/}" class="btn btn-outline-primary">Транзакции</a>
+    <a th:href="@{/auth/categories/}" class="btn btn-outline-primary">Категории</a>
+    <a th:href="@{/auth/report/}" class="btn btn-outline-primary">Отчёт</a>
 </div>
