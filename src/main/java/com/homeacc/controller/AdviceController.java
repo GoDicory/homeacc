@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @ControllerAdvice
 public class AdviceController {
@@ -38,6 +40,20 @@ public class AdviceController {
         User currentUser = (User) session.getAttribute("currentUser");
         if (currentUser != null){
             return adviceService.getLoginUser(currentUser.getId());
+        }
+        return "Гость";
+
+
+    }
+
+    @ModelAttribute("dataTime")
+    public String getDataTime(HttpSession session){
+        User currentUser = (User) session.getAttribute("currentUser");
+        if (currentUser != null){
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+            String text = now.format(formatter);
+            return text;
         }
         return "Гость";
 
