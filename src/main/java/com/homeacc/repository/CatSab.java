@@ -16,31 +16,24 @@ public class CatSab {
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
-
     public String getUserLogin() {
         return userLogin;
     }
-
     public void setUserLogin(String userLogin) {
         this.userLogin = userLogin;
     }
-
     public String getCategory() {
         return category;
     }
-
     public void setCategory(String category) {
         this.category = category;
     }
-
     public String getComments() {
         return comments;
     }
-
     public void setComments(String comments) {
         this.comments = comments;
     }

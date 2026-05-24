@@ -1,7 +1,10 @@
 package com.homeacc.controller;
 
+import com.homeacc.repository.Transactions;
+import com.homeacc.repository.TransactionsRepository;
 import com.homeacc.repository.User;
 import com.homeacc.service.AdviceService;
+import com.homeacc.service.TransactionsService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -13,17 +16,19 @@ import java.math.BigDecimal;
 public class AdviceController {
 
     @Autowired
-    private final AdviceService adviceService;
+    AdviceService adviceService;
+    @Autowired
+    TransactionsService transactionsService;
+    @Autowired
+    TransactionsRepository transactionsRepository;
 
-    public AdviceController(AdviceService adviceService) {
-        this.adviceService = adviceService;
-    }
 
     @ModelAttribute("userBalance")
     public BigDecimal getUserBalance(HttpSession session) {
         User currentUser = (User) session.getAttribute("currentUser");
         if (currentUser != null){
-            return adviceService.getBalanceUser(currentUser.getId());
+            transactionsService.setBalanceUser(currentUser.getLogin());
+            return transactionsRepository.sumUserTransactions(currentUser.getLogin());
         }
         return BigDecimal.ZERO;
     }

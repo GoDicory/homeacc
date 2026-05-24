@@ -10,4 +10,6 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User,Long> {
     @Query(value = "select * from users WHERE login = :login", nativeQuery = true)
     User findByLogin(@Param("login") String login);
+
+
 }

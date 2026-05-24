@@ -5,10 +5,16 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Repository
 public interface TransactionsRepository extends JpaRepository<Transactions, Long> {
     @Query(value = "select * from transactions WHERE user_login = :user_login", nativeQuery = true)
     List<Transactions> findALLByUserLogin(@Param("user_login") String user_login);
+
+    @Query(value = "SELECT SUM(summa) from transactions WHERE user_login = :user_login", nativeQuery = true)
+    BigDecimal sumUserTransactions(@Param("user_login") String user_login);
+
+
 }
