@@ -10,7 +10,6 @@ import java.util.List;
 
 @Service
 public class TransactionsService {
-
     private final TransactionsRepository transactionsRepository;
     private final UserRepository userRepository;
 

@@ -18,10 +18,6 @@ import java.util.Objects;
 @Controller
 @RequestMapping(path = "/auth/home/")
 public class UserController {
-
-    @Autowired
-    private AuthService authService;
-
     @Autowired
     private HomeService homeService;
 

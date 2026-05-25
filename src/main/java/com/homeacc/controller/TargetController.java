@@ -12,9 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping(path = "/auth/target/")
 public class TargetController {
-
-    @Autowired
-    private AuthService authService;
     @GetMapping
     public String index(HttpSession session, Model model){
         User currentUser = (User) session.getAttribute("currentUser");

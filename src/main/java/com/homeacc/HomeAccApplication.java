@@ -7,11 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 public class HomeAccApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(HomeAccApplication.class, args);
 	}
-
-
-
 }

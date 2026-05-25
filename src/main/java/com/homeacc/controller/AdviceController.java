@@ -42,8 +42,6 @@ public class AdviceController {
             return adviceService.getLoginUser(currentUser.getId());
         }
         return "Гость";
-
-
     }
 
     @ModelAttribute("dataTime")

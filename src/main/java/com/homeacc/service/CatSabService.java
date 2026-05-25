@@ -12,21 +12,15 @@ import java.util.List;
 public class CatSabService {
 
     private final CatSabRepository catSabRepository;
-
-
     public CatSabService(CatSabRepository catSabRepository) {
         this.catSabRepository = catSabRepository;
     }
-
     public List<CatSab> getAllCategory(String user_login){
         return catSabRepository.findAllByUserLogin(user_login);
     }
-
     public  CatSab findById(Long id){
         return catSabRepository.findById(id).orElse(null);
     }
-
     public  void deleteByID(Long id) { catSabRepository.deleteById(id); }
-
     public CatSab add(CatSab catSab){return catSabRepository.save(catSab);}
 }

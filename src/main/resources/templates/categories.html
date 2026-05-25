@@ -22,8 +22,8 @@
                             <input type="text" id="category" class="form-control" th:field="*{category}" placeholder="Введите название категории">
                         </div>
                         <div>
-                            <label for="comments">Подкатегория:</label>
-                            <input type="text" id="comments" class="form-control" th:field="*{comments}" placeholder="Введите название подкатегории">
+                            <label for="comment">Коментарий:</label>
+                            <textarea  type="text" id="comment" class="form-control" rows="5" th:field="*{comments}" placeholder="Ваш коментарий"></textarea>
                         </div>
                         <div>
                             <button class="btn bg-primary my-3 text-white" type="submit">Добавить</button>
@@ -35,7 +35,7 @@
                 <table class="table table-striped">
                     <tr>
                         <th>Категория</th>
-                        <th>Подкатегория</th>
+                        <th>Коментарий</th>
                         <th>Удалить</th>
                     </tr>
                     <tr th:each="t : ${catBlockAll}">

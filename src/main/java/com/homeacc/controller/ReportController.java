@@ -24,13 +24,8 @@ import java.util.List;
 @Controller
 @RequestMapping(path = "/auth/report/")
 public class ReportController {
-
-    @Autowired
-    private AuthService authService;
-
     @Autowired
     TransactionsService transactionsService;
-
     @GetMapping
     public String index(HttpSession session, Model model){
         User currentUser = (User) session.getAttribute("currentUser");
@@ -40,9 +35,7 @@ public class ReportController {
         } else {
             return "redirect:/";
         }
-
     }
-
     @PostMapping("/export")
     public void exportReport(HttpServletResponse response, HttpSession session) throws IOException {
         User currentUser = (User) session.getAttribute("currentUser");

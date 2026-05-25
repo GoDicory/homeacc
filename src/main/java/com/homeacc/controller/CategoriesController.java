@@ -17,14 +17,10 @@ import java.util.List;
 @Controller
 @RequestMapping(path = "/auth/categories/")
 public class CategoriesController {
-
-    @Autowired
-    private AuthService authService;
     @Autowired
     private CatSabService catSabService;
     @Autowired
     private AdviceService adviceService;
-
     @GetMapping
     public String index(HttpSession session, Model model){
         User currentUser = (User) session.getAttribute("currentUser");
@@ -38,13 +34,11 @@ public class CategoriesController {
             return "redirect:/";
         }
     }
-
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
         catSabService.deleteByID(id);
         return "redirect:/auth/categories/";
     }
-
     @PostMapping
     public String add(@ModelAttribute CatSab catSab, Model model, HttpSession session){
         User currentUser = (User) session.getAttribute("currentUser");

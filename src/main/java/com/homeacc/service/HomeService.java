@@ -12,7 +12,6 @@ public class HomeService {
     public HomeService(TransactionsRepository transactionsRepository) {
         this.transactionsRepository = transactionsRepository;
     }
-
     public List<Transactions> getAllTransactions(String user_login){
         return transactionsRepository.findALLByUserLogin(user_login);
     }

@@ -17,21 +17,17 @@ import java.util.List;
 @Controller
 @RequestMapping(path = "/auth/transactions/")
 public class TransactionsController {
-
     @Autowired
     private final AdviceService adviceService;
     @Autowired
     private final TransactionsService transactionsService;
-
     @Autowired
     private final CatSabService catSabService;
-
     public TransactionsController(AdviceService adviceService, TransactionsService transactionsService, CatSabService catSabService) {
         this.adviceService = adviceService;
         this.transactionsService = transactionsService;
         this.catSabService = catSabService;
     }
-
     @GetMapping
     public String index(HttpSession session, Model model){
         User currentUser = (User) session.getAttribute("currentUser");
@@ -53,7 +49,6 @@ public class TransactionsController {
         transactionsService.deleteByID(id);
         return "redirect:/auth/transactions/";
     }
-
     @PostMapping
     public String add(@ModelAttribute Transactions transactions, Model model,HttpSession session){
         User currentUser = (User) session.getAttribute("currentUser");
